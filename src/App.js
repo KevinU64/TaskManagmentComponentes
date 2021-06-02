@@ -1,25 +1,31 @@
-import logo from './logo.svg';
-import './App.css';
+import React from 'react';
+import Frame1 from './components/Frame1';
+import getContentFrame1 from './assets/getContentFrame1';
+import Frame2 from './components/Frame2';
+import getContentFrame2 from './assets/getContentFrame2'
+import Frame3 from './components/Frame3';
+import './global.css';
 
-function App() {
-  return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+export default function App(){
+
+  const data = getContentFrame1();
+  const data2 = getContentFrame2();
+
+  return(
+    <div className='contenedor_frames'>
+      {
+        data.map((frame)=>{
+          return <Frame1 data={frame}/>
+        })
+      }
+      {
+        data2.map((frame)=>{
+          return <Frame2 data2={frame}/>
+        })
+      }
+      {
+        <Frame3 />
+      }
     </div>
-  );
+  )
 }
-
-export default App;
